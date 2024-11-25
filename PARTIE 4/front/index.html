@@ -8,8 +8,14 @@
 </head>
 <body>
     <header>
+        <div class="logo">
+            <img src="logo.png">
+        </div>
+        <button class="login_button" type="button">Login</button>
+        <h1>Pick the house you've always dreamed of for the perfect vacation.</h1>
         <nav>
-            <a href="login.html" id="login-link">Login</a>
+          <a href="">Home</a>
+          <a href="">All the places</a>
         </nav>
     </header>
     <main>
@@ -20,9 +26,40 @@
             </select>
         </section>
         <section id="places-list">
-            <!-- List of places will be populated dynamically -->
+            <div class="place-card">
+                <h3>Beautiful Beach House</h3>
+                <img src="beach-villa.jpg" alt="Beachfront Villa">
+                <p>Price per night: $150</p>
+                <button class="details_place_button" type="button">View Details</button>
+                <div class="place-card">
+                    <h3>Cozy Cabin</h3>
+                    <img src="beach-villa.jpg" alt="Beachfront Villa">
+                    <p>Price per night: $100</p>
+                    <button class="details_place_button" type="button">View Details</button>
+                </div>
+                <div class="place-card">
+                    <h3>Modern Apartment</h3>
+                    <img src="beach-villa.jpg" alt="Beachfront Villa">
+                    <p>Price per night: $200</p>
+                    <button class="details_place_button" type="button">View Details</button>
+                </div>
+            </div>
         </section>
     </main>
     <script src="scripts.js"></script>
+    <footer>
+        <adress>
+            18 Avenue Jean Jaurès<br>Cenon
+        </address>
+        <hr>
+        <p>© 2024 HBnB Evolution. All rights reserved.<br> Made with ♥ by Mariama Goudiaby.</p>
+        <div>
+            <ul>
+                <li><a href="#">Terms of Use</a></li>
+                <li><a href="#">Privacy Policy</a></li>
+                <li><a href="#">Cookie Policy</a></li>
+            </ul>
+        </div>
+    </footer>
 </body>
 </html>

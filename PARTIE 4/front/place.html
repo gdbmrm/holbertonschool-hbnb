@@ -7,23 +7,50 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+    <header>
+        <div class="logo">
+            <img src="logo.png">
+        </div>
+        <button class="login_button" type="button">Login</button>
+        <h1>Pick the house you've always dreamed of for the perfect vacation.</h1>
+        <nav>
+          <a href="">Home</a>
+          <a href="">All the places</a>
+        </nav>
+    </header>
     <main>
         <section id="place-details">
             <!-- Place details will be populated dynamically -->
         </section>
         <section id="reviews">
-            <!-- Reviews will be populated dynamically -->
+            <div class="review-card">
+                <!-- ?? -->       
+            </div>
         </section>
         <section id="add-review">
             <h2>Add a Review</h2>
             <form id="review-form">
                 <label for="review-text">Review:</label>
                 <textarea id="review-text" name="review-text" required></textarea>
-                
                 <button type="submit">Submit</button>
             </form>
         </section>
+        <button class="add_review_button" type="button">I add my review !</button>
     </main>
     <script src="scripts.js"></script>
+    <footer> 
+        <adress>
+            18 Avenue Jean Jaurès<br>Cenon
+        </address>
+        <hr>
+        <p>© 2024 HBnB Evolution. All rights reserved.<br> Made with ♥ by Mariama Goudiaby.</p>
+        <div>
+            <ul>
+                <li><a href="#">Terms of Use</a></li>
+                <li><a href="#">Privacy Policy</a></li>
+                <li><a href="#">Cookie Policy</a></li>
+            </ul>
+        </div>
+    </footer>
 </body>
 </html>
