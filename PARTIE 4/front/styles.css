@@ -3,11 +3,41 @@
   You'll probably need to override some of theese styles.
 */
 
+:root {
+    --margin-card: 20px;
+    --padding-card: 10px;
+    --border-card: 1px solid #ddd;
+    --border-radius-card: 10px;
+    --color-web-site: #FFA27F;
+    --text-font: italic 1.2rem "Fira Sans", serif;
+    --title-font: small-caps bold 19px/1 sans-serif;
+}
+
 * {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
     font-family: Arial, sans-serif;
+}
+
+.header {
+    background-color: var(--color-web-site);
+    font: var(--title-font);
+}
+
+.place-card {
+    margin: var(--margin-card);
+    padding: var(--padding-card);
+    border: var(--border-card);
+    border-radius: var(--border-radius-card);
+    font: var(--text-font);
+}
+
+.review-card {
+    margin: var(--margin-card);
+    padding: var(--padding-card);
+    border: var(--border-card);
+    border-radius: var(--border-radius-card);
 }
 
 body {
