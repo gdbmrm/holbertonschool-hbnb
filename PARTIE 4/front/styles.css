@@ -25,12 +25,37 @@
     font: var(--title-font);
 }
 
+.cards-container {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
 .place-card {
     margin: var(--margin-card);
     padding: var(--padding-card);
     border: var(--border-card);
     border-radius: var(--border-radius-card);
     font: var(--text-font);
+    background: #fff;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    width: 200px;
+}
+
+.place-detail-card {
+    margin: var(--margin-card);
+    padding: var(--padding-card);
+    border: var(--border-card);
+    border-radius: var(--border-radius-card);
+    font: var(--text-font);
+    background: #fff;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    width: auto;
+    line-height: 2;
+
 }
 
 .review-card {
@@ -38,25 +63,93 @@
     padding: var(--padding-card);
     border: var(--border-card);
     border-radius: var(--border-radius-card);
+    text-align: center;
 }
 
+button {
+    align-items: center;
+    appearance: none;
+    background-color: var(--color-web-site);
+    border-radius: 24px;
+    border-style: none;
+    box-shadow: rgba(0, 0, 0, .2) 0 3px 5px -1px,rgba(0, 0, 0, .14) 0 6px 10px 0,rgba(0, 0, 0, .12) 0 1px 18px 0;
+    box-sizing: border-box;
+    color: #3c4043;
+    cursor: pointer;
+    display: inline-flex;
+    fill: currentcolor;
+    font-family: "Google Sans", Roboto, Arial, sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+    height: 35px;
+    justify-content: center;
+    letter-spacing: .25px;
+    line-height: normal;
+    max-width: 100%;
+    overflow: visible;
+    padding: 2px 24px;
+    position: relative;
+    text-align: center;
+    text-transform: none;
+    transition: box-shadow 280ms cubic-bezier(.4, 0, .2, 1),opacity 15ms linear 30ms,transform 270ms cubic-bezier(0, 0, .2, 1) 0ms;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+    width: auto;
+    will-change: transform,opacity;
+    z-index: 0;
+}
+
+.login_button {
+    position:absolute;
+    background-color: #fff;
+    top:10;
+    right:0;
+}
+
+.add_review_button {
+  position: absolute;
+}
 body {
     background-color: #f4f4f4;
     color: #333;
 }
 
 header {
-    background-color: #333;
+    background-color: var(--color-web-site);
     color: #fff;
     padding: 1rem;
+}
+
+h2
+h3 {
+  text-align: center;
+  font: var(--title-font);
+}
+
+textarea {
+    width: 500px;
+    height: 150px;
+    padding: 90px;
+    font-size: 16px;
 }
 
 nav a {
     color: #fff;
     text-decoration: none;
-    margin-left: 1rem;
+    margin: 20rem;
 }
 
 main {
     padding: 2rem;
+}
+
+footer {
+    background-color: var(--color-web-site);
+    text-align: center;
+}
+
+adress {
+    font-weight: bold;
+    font-style: italic;
 }
