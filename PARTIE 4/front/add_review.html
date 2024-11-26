@@ -23,17 +23,17 @@
         <form id="review-form">
             <h2>Add a Review</h2>
             <label for="review">Your Review:</label>
-            <textarea id="review" name="review" required></textarea>
+            <textarea id="review" name="review" required class="input"></textarea>
             <label for="rating">Rating:</label>
             <select id="rating" name="rating" required>
-                <!-- Options for rating -->
+                <input type="range" id="rating" name="rating" min="1" max="5" step="1">
             </select>
-            <button type="submit">Submit Review</button>
+            <button type="submit" class="all_button">Submit Review</button>
         </form>
     </main>
     <script src="scripts.js"></script>
     <footer>
-        <adress>
+        <address>
             18 Avenue Jean Jaurès<br>Cenon
         </address>
         <hr>

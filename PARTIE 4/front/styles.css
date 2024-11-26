@@ -107,6 +107,11 @@ button {
     right:0;
 }
 
+.all_button {
+  margin: 0 auto;
+  display: block;
+}
+
 .add_review_button {
   position: absolute;
 }
@@ -149,7 +154,20 @@ footer {
     text-align: center;
 }
 
-adress {
+address {
     font-weight: bold;
     font-style: italic;
 }
+
+.input {
+    line-height: 2;
+    border: 1.5px solid black;
+  margin: 0 auto;
+  display: block;
+  width: 280px;
+}
+
+label {
+    text-align: center; /* Centre le texte horizontalement */
+    display: block;
+  line-height: 3;
