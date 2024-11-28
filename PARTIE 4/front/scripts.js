@@ -10,7 +10,7 @@ document.addEventListener('DOMContentLoaded', () => {
         loginForm.addEventListener('submit', async (event) => {
             event.preventDefault();
             async function loginUser(email, password) {
-              const response = await fetch('https://your-api-url/login', {
+              const response = await fetch('https://localhost:5000/v1/auth/login', {
                   method: 'POST',
                   headers: {
                       'Content-Type': 'application/json'
@@ -56,14 +56,32 @@ function getCookie(name) {
 }
 
 async function fetchPlaces(token) {
-  // Make a GET request to fetch places data
-  // Include the token in the Authorization header
-  // Handle the response and pass the data to displayPlaces function
-}
+  const response = await fetch('https://localhost:5000/v1/places', {
+    method: 'GET',
+    headers: {
+      'Authorization': `Bearer ${token}`,
+    },
+    });
+    if (response.ok) {
+      const data = await response.json();
+      displayPlaces(data)
+    }
+  }
 
 function displayPlaces(places) {
-  // Clear the current content of the places list
-  // Iterate over the places data
-  // For each place, create a div element and set its content
-  // Append the created element to the places list
+  const placesContainer = document.getElementById("place-details");
+  placesContainer.innerHTML = "";
+
+  for (const place of places) {
+    const newDiv = document.createElement("div");
+    newDiv.innerHTML = `
+    <h3>${place.name}</h3>
+    <p>${place.owner}</p>
+    <p>${place.price}</p>
+    <p>${place.description}</p>
+
+
+  `;
+    placesContainer.appendChild(newDiv);
+  }
 }
