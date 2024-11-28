@@ -1,4 +1,5 @@
 from flask import Flask
+from flask_cors import CORS
 from flask_restx import Api
 from flask_bcrypt import Bcrypt
 from flask_jwt_extended import JWTManager
@@ -17,6 +18,7 @@ def create_app(config_class=config.DevelopmentConfig):
     bcrypt.init_app(app)
     jwt.init_app(app)
     db.init_app(app)
+    CORS(app)
 
     from .services import HBnBFacade
     globals()["facade"] = HBnBFacade()
