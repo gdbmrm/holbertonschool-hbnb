@@ -9,24 +9,25 @@ document.addEventListener('DOMContentLoaded', () => {
     if (loginForm) {
         loginForm.addEventListener('submit', async (event) => {
             event.preventDefault();
-            async function loginUser(email, password) {
-              const response = await fetch('https://localhost:5000/v1/auth/login', {
-                  method: 'POST',
-                  headers: {
-                      'Content-Type': 'application/json'
-                  },
-                  body: JSON.stringify({ email, password })
-              });
-              if (response.ok) {
-                const data = await response.json();
-                document.cookie = `token=${data.access_token}; path=/`;
-                window.location.href = 'index.html';
-            } else {
-                alert('Login failed: ' + response.statusText);
-            }
-          }
+    
+    async function loginUser(email, password) {
+      const response = await fetch('https://localhost:5000/v1/auth/login', {
+        method: 'POST',
+          headers: {
+          'Content-Type': 'application/json'
+          },
+        body: JSON.stringify({ email, password })
         });
-    }
+        if (response.ok) {
+          const data = await response.json();
+          document.cookie = `token=${data.access_token}; path=/`;
+          window.location.href = 'index.html';
+        } else {
+          alert('Login failed: ' + response.statusText);
+        }
+      }
+    });
+   }
 });
 
 function checkAuthentication() {
@@ -69,7 +70,7 @@ async function fetchPlaces(token) {
   }
 
 function displayPlaces(places) {
-  const placesContainer = document.getElementById("place-details");
+  const placesContainer = document.getElementById("places-list");
   placesContainer.innerHTML = "";
 
   for (const place of places) {
@@ -79,9 +80,22 @@ function displayPlaces(places) {
     <p>${place.owner}</p>
     <p>${place.price}</p>
     <p>${place.description}</p>
-
-
+    <p>${place.amenity}</p>    
   `;
     placesContainer.appendChild(newDiv);
   }
 }
+
+document.getElementById('price-filter').addEventListener('change', (event) => {
+  const price = event.target.value
+  const places = document.querySelectorAll('.place');
+
+  for (const place of places) {
+    const placePrice = parseInt(place.dataset.price, 10);
+    if (placePrice <= selectedPrice) {
+      place.style.display = 'block';
+    } else {
+      place.style.display = 'none';
+    }
+  }
+});

@@ -3,3 +3,4 @@ flask-restx
 flask_jwt_extended
 flask_bcrypt
 flask_sqlalchemy
+flask-cors
