@@ -126,19 +126,17 @@ header {
     padding: 1rem;
 }
 
-h2
-h3 {
+h2, h3 {
   text-align: center;
   font: var(--title-font);
 }
 
 textarea {
-    width: 500px;
-    height: 150px;
-    padding: 90px;
-    font-size: 16px;
+    width: 300px;
+    height: 100px; /* plus de hauteur pour voir plus de texte */
+    padding: 10px; /* espace raisonnable autour du texte */
+    font-size: 16px; /* taille de texte confortable */
 }
-
 nav a {
     color: #fff;
     text-decoration: none;
@@ -171,3 +169,10 @@ label {
     text-align: center; /* Centre le texte horizontalement */
     display: block;
   line-height: 3;
+
+select {
+    font-size: 16px;
+    padding: 10px;
+    width: 100%;
+    margin: 10px 0;
+}
