@@ -9,27 +9,33 @@
 <body>
     <header>
         <div class="logo">
-            <img src="logo.png" alt="HbnB logo">
+            <img src="./images/logo.png" alt="Logo">
         </div>
-        <button class="login_button" type="button">Login</button>
         <h1>Pick the house you've always dreamed of for the perfect vacation.</h1>
         <nav>
-          <a href="">Home</a>
-          <a href="">All the places</a>
+          <a href="index.html" class="active">Home</a>
         </nav>
     </header>
-    <main>
-        <form id="login-form">
-            <h2>Login</h2>
-            <label for="email">Email:</label>
-            <input type="email" id="email" name="email" class="input" required>
-            
-            <label for="password">Password:</label>
-            <input type="password" id="password" name="password" class="input" required>
-            
-            <button type="submit">Login</button>
-        </form>
-    </main>
+
+    <div class="login-container">
+        <div class="login-card">
+            <h1 class="login-title">Login</h1>
+            <form id="login-form">
+                <p id="login-result"></p>
+                <div class="form-group">
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="email" placeholder="Please enter your email" required>
+                </div>
+                <div class="form-group">
+                    <label for="password">Password:</label>
+                    <input type="password" id="password" name="password" placeholder="Please enter your password" required>
+                </div>
+                <button type="submit" class="login-button">Login</button>
+                <p id="error-message" style="display:none; color: red;"></p>
+            </form>
+        </div>
+    </div>
+
     <script src="scripts.js"></script>
     <footer>
         <address>

@@ -3,32 +3,53 @@
   Please, follow the project instructions to complete the tasks.
 */
 
+const places = [
+  { name: "Beautiful Beach House", price: 150, image: "beach-villa.jpg", description: "A cozy beachfront villa." },
+  { name: "Cozy Cabin", price: 100, image: "cabin.jpg", description: "A warm cabin in the woods." },
+  { name: "Modern Apartment", price: 200, image: "apartment.jpg", description: "A sleek apartment in the city center." }
+];
+
+
 document.addEventListener('DOMContentLoaded', () => {
   const loginForm = document.getElementById('login-form');
+  
+  if (loginForm) {
+      loginForm.addEventListener('submit', async (event) => {
+          event.preventDefault();
 
-    if (loginForm) {
-        loginForm.addEventListener('submit', async (event) => {
-            event.preventDefault();
-    
-    async function loginUser(email, password) {
-      const response = await fetch('https://localhost:5000/v1/auth/login', {
-        method: 'POST',
-          headers: {
-          'Content-Type': 'application/json'
-          },
-        body: JSON.stringify({ email, password })
-        });
-        if (response.ok) {
-          const data = await response.json();
-          document.cookie = `token=${data.access_token}; path=/`;
-          window.location.href = 'index.html';
-        } else {
-          alert('Login failed: ' + response.statusText);
-        }
-      }
-    });
-   }
+          const email = document.getElementById('email').value;
+          const password = document.getElementById('password').value;
+
+          await loginUser(email, password);
+      });
+  }
 });
+
+async function loginUser(email, password) {
+  try {
+    console.log('Sending request with:', { email, password });
+    const response = await fetch('http://127.0.0.1:5500/v1/auth/login', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ email, password })
+    });
+
+    console.log('Response status:', response.status);
+
+    if (response.ok) {
+      const data = await response.json();
+      document.cookie = `token=${data.access_token}; path=/`;
+      window.location.href = 'index.html';
+    } else {
+        const errorMessage = await response.text();
+        alert('Login failed: ' + errorMessage);
+    }
+    } catch (error) {
+        alert('An error occurred: ' + error.message);
+    }
+}
 
 function checkAuthentication() {
   const token = getCookie('token');
@@ -38,7 +59,6 @@ function checkAuthentication() {
       loginLink.style.display = 'block';
   } else {
       loginLink.style.display = 'none';
-      // Fetch places data if the user is authenticated
       fetchPlaces(token);
   }
 }
@@ -57,7 +77,7 @@ function getCookie(name) {
 }
 
 async function fetchPlaces(token) {
-  const response = await fetch('https://localhost:5000/v1/places', {
+  const response = await fetch('http://localhost:5500/v1/places/', {
     method: 'GET',
     headers: {
       'Authorization': `Bearer ${token}`,
@@ -70,7 +90,7 @@ async function fetchPlaces(token) {
   }
 
 function displayPlaces(places) {
-  const placesContainer = document.getElementById("places-list");
+  const placesContainer = document.getElementById("place-details");
   placesContainer.innerHTML = "";
 
   for (const place of places) {
@@ -80,22 +100,9 @@ function displayPlaces(places) {
     <p>${place.owner}</p>
     <p>${place.price}</p>
     <p>${place.description}</p>
-    <p>${place.amenity}</p>    
+
+
   `;
     placesContainer.appendChild(newDiv);
   }
 }
-
-document.getElementById('price-filter').addEventListener('change', (event) => {
-  const price = event.target.value
-  const places = document.querySelectorAll('.place');
-
-  for (const place of places) {
-    const placePrice = parseInt(place.dataset.price, 10);
-    if (placePrice <= selectedPrice) {
-      place.style.display = 'block';
-    } else {
-      place.style.display = 'none';
-    }
-  }
-});

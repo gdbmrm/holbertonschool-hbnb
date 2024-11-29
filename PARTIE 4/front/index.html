@@ -9,42 +9,26 @@
 <body>
     <header>
         <div class="logo">
-            <img src="logo.png">
+            <img src="./images/logo.png" alt="Logo">
         </div>
         <button class="login_button" type="button">Login</button>
         <h1>Pick the house you've always dreamed of for the perfect vacation.</h1>
         <nav>
-          <a href="\">Home</a>
-          <a href="\place">All the places</a>
+          <a href="index.html" class="active">Home</a>
+          <a href="login.html" id="login-link">Login</a>
         </nav>
     </header>
     <main>
         <section id="filter">
             <label for="price-filter">Max Price:</label>
             <select id="price-filter">
-                <!-- Options will be populated dynamically -->
+                <option value="" disabled selected>Select a price range</option>
+                <option value="100">$100 or less</option>
+                <option value="150">$150 or less</option>
+                <option value="200">$200 or less</option>
             </select>
         </section>
-        <section id="places-list">
-            <div class="place-card">
-                <h3>Beautiful Beach House</h3>
-                <img src="beach-villa.jpg" alt="Beachfront Villa">
-                <p>Price per night: $150</p>
-                <button class="details_place_button" type="button">View Details</button>
-            </div>
-            <div class="place-card">
-                <h3>Cozy Cabin</h3>
-                <img src="beach-villa.jpg" alt="Beachfront Villa">
-                <p>Price per night: $100</p>
-                <button class="details_place_button" type="button">View Details</button>
-            </div>
-            <div class="place-card">
-                <h3>Modern Apartment</h3>
-                <img src="beach-villa.jpg" alt="Beachfront Villa">
-                <p>Price per night: $200</p>
-                <button class="details_place_button" type="button">View Details</button>
-            </div>
-        </section>
+        <section id="places-details"></section>
     </main>
     <script src="scripts.js"></script>
     <footer>

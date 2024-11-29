@@ -4,8 +4,8 @@
 */
 
 :root {
-    --margin-card: 20px;
-    --padding-card: 10px;
+    --margin-card: 1rem;
+    --padding-card: 0.5rem;
     --border-card: 1px solid #ddd;
     --border-radius-card: 10px;
     --color-web-site: #FFA27F;
@@ -25,6 +25,12 @@
     font: var(--title-font);
 }
 
+main {
+    margin: 0 auto;
+    max-width: 1200px;
+    padding: 2rem;
+}
+
 .cards-container {
     display: flex;
     gap: 20px;
@@ -41,7 +47,8 @@
     background: #fff;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
     text-align: center;
-    width: 200px;
+    width: 90%;
+    max-width: 200px;
 }
 
 .place-detail-card {
@@ -103,7 +110,7 @@ button {
 .login_button {
     position:absolute;
     background-color: #fff;
-    top:10;
+    top:10px;
     right:0;
 }
 
@@ -139,8 +146,8 @@ textarea {
 }
 nav a {
     color: #fff;
-    text-decoration: none;
-    margin: 20rem;
+    margin: 0 1rem;
+    padding: 0.5rem;
 }
 
 main {
@@ -169,10 +176,27 @@ label {
     text-align: center; /* Centre le texte horizontalement */
     display: block;
   line-height: 3;
+}
 
 select {
     font-size: 16px;
     padding: 10px;
     width: 100%;
     margin: 10px 0;
+}
+
+.login-card {
+    background: #fff;
+    padding: 2rem;
+    border: var(--border-card);
+    border-radius: var(--border-radius-card);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 350px;
+    text-align: center;
+}
+
+#error-message {
+    margin-top: 1rem;
+    font-size: 0.9rem;
+    color: red;
 }
